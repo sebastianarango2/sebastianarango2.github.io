@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Para Ti</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #F0E6F6;
+                color: #5B2C6F;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                overflow: hidden;
+            }
+            h1 {
+                color: #8E44AD;
+                margin-top: 50px;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            .mensaje-personal {
+                background-color: #E8DAEF;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px #BB8FCE;
+            }
+            .interactive-box {
+                background-color: #8E44AD;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .interactive-box:hover {
+                background-color: #BB8FCE;
+            }
+            .flor {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #BB8FCE;
+                border-radius: 50%;
+                animation: flotar 6s infinite ease-in-out;
+            }
+            @keyframes flotar {
+                0% {
+                    transform: translateY(100vh);
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh);
+                    opacity: 0;
+                }
+            }
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #8E44AD;
+                color: white;
+                border-radius: 20px;
+                box-shadow: 0 0 15px #BB8FCE;
+            }
+            .close-button {
+                background-color: white;
+                color: #8E44AD;
+                border: none;
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Para Ti, Mi Pedacito de Roca♡</h1>
+
+            <!-- Mensaje personal -->
+            <div class="mensaje-personal mt-4 mx-auto p-3 col-12 col-md-8">
+                <p>Eres mi mayor alegría y cada día contigo es un regalo. Después de todo lo que hemos pasado, sé que no hay mejor lugar en el mundo que a tu lado. Eres mi lugar seguro. Gracias por ser mi luz y mi compañera en cada paso.</p>
+                <p><em>"No me tientes, que si nos tentamos no nos podremos olvidar" – Mario Benedetti</em></p>
+                <p><em>"Si te quiero es porque sos mi amor, mi cómplice y todo" – Mario Benedetti</em></p>
+            </div>
+
+            <!-- Caja interactiva -->
+            <div class="interactive-box mt-4 p-3 col-12 col-md-6 mx-auto" onclick="mostrarSorpresa()">
+                Haz clic para descubrir algo especial
+            </div>
+
+            <!-- Popup sorpresa -->
+            <div id="popup-sorpresa" class="popup p-4 col-10 col-md-6 text-center">
+                <p>Te amo más de lo que las palabras pueden describir. 💜</p>
+                <p><em>"Después de todo, la muerte es solo un síntoma de que hubo vida" – Mario Benedetti</em></p>
+                <button class="close-button" onclick="cerrarSorpresa()">Cerrar</button>
+            </div>
+
+            <!-- Nuevo botón para la página de la rosa -->
+            <div class="mt-4">
+                <a href="ParaTi2.html" class="btn btn-primary btn-lg close-button">Ingresar</a>
+            </div>
+        </div>
+
+        <!-- Animación de flores moradas -->
+        <div class="flor" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="flor" style="top: 50%; left: 40%; animation-delay: 2s;"></div>
+        <div class="flor" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+        <div class="flor" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
+
+        <!-- Canción de fondo -->
+        
+        <!-- Reproductor de audio en fondo -->
+        <audio id="background-audio" autoplay loop>
+            <source src="Querer querernos [8cKvvmPwgP4].mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <!-- Opcional: Controles para pausar o reproducir la canción -->
+        <div class="container">
+            <button class="btn btn-primary interactive-box" onclick="playAudio()">Reproducir</button>
+            <button class="btn btn-secondary interactive-box" onclick="pauseAudio()">Pausar</button>
+        </div>
+
+        <script>
+            var audio = document.getElementById("background-audio");
+
+            function playAudio() {
+                audio.play();
+            }
+
+            function pauseAudio() {
+                audio.pause();
+            }
+        </script>
+        
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            function mostrarSorpresa() {
+                document.getElementById('popup-sorpresa').style.display = 'block';
+            }
+
+            function cerrarSorpresa() {
+                document.getElementById('popup-sorpresa').style.display = 'none';
+            }
+        </script>
+    </body>
+
+</html>

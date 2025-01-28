@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <title>Para ti</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #4B0082;
+                font-family: 'Arial', sans-serif;
+                overflow: hidden;
+                color: white;
+            }
+
+            .container {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .flower {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: #FF69B4;
+                opacity: 0;
+                animation: fadeIn 2s forwards;
+            }
+
+            .center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 30px;
+                height: 30px;
+                background-color: #FFFF00;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .phrase {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                max-width: 200px;
+                text-align: center;
+                color: #FFF;
+                animation: fadeIn 3s forwards;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.5); }
+                to { opacity: 1; transform: scale(1); }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container" id="garden">
+            <h1>Tu eres mi lugar seguro</h1>
+        </div>
+
+        <script>
+            const frases = [
+                "Mi lugar seguro eres tú.",
+                "Si te quiero es porque sos mi amor, mi cómplice y todo.",
+                "Tú eres el instante que justifica la eternidad.",
+                "No me tientes, que si nos tentamos, no nos podremos olvidar.",
+                "Qué bueno que tengas mi amor, porque así no te faltará nunca.",
+                "Eres mi presente más bello y el futuro que más deseo.",
+                "No sé tu nombre, sólo sé la mirada con que me lo dices.",
+                "Mi amor por ti es más fuerte que mis dudas."
+            ];
+
+            function createFlowerWithPhrase(event) {
+                const garden = document.getElementById('garden');
+
+                // Crear flor
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+
+                const center = document.createElement('div');
+                center.classList.add('center');
+                flower.appendChild(center);
+
+                const randomX = Math.random() * (window.innerWidth - 100);
+                const randomY = Math.random() * (window.innerHeight - 100);
+
+                flower.style.left = randomX + 'px';
+                flower.style.top = randomY + 'px';
+
+                garden.appendChild(flower);
+
+                // Crear frase
+                const phrase = document.createElement('div');
+                phrase.classList.add('phrase');
+                const randomPhrase = frases[Math.floor(Math.random() * frases.length)];
+                phrase.innerText = randomPhrase;
+
+                phrase.style.left = randomX + 'px';
+                phrase.style.top = (randomY + 100) + 'px'; // Para que la frase esté debajo de la flor
+
+                garden.appendChild(phrase);
+
+                // Eliminar flor y frase después de 8 segundos
+                setTimeout(() => {
+                    flower.remove();
+                    phrase.remove();
+                }, 8000);
+            }
+
+            // Crear flores y frases cuando se toca o hace clic en la pantalla
+            document.body.addEventListener('click', createFlowerWithPhrase);
+            document.body.addEventListener('touchstart', createFlowerWithPhrase);
+        </script>
+
+        <div class="mt-4">
+            <a href="ParaTi1.html" class="btn btn-primary btn-lg close-button">Ver la Rosa</a>
+        </div> 
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+</html>
